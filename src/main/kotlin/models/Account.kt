@@ -3,7 +3,7 @@ package models
 import java.text.NumberFormat
 import java.util.*
 
-class Account(private val owner: String, private val number: Int) {
+open class Account(private val owner: String, private val number: Int) {
     var balance = 0.0
         private set
 
@@ -11,7 +11,7 @@ class Account(private val owner: String, private val number: Int) {
         if (value > 0) this.balance += value
     }
 
-    fun withdraw(value: Double) {
+    open fun withdraw(value: Double) {
         if (canExecuteOperation(value)) {
             balance -= value
         }
