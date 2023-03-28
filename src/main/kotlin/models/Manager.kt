@@ -14,5 +14,5 @@ class Manager(
         return this.password == password
     }
 
-    override val bonus: Double get() = super.bonus + salary
+    override val bonus: Double get() = salary
 }

@@ -1,6 +1,6 @@
 package models
 
-class Analyst(
+class Auxiliary(
     name: String,
     cpf: String,
     salary: Double,
@@ -9,5 +9,5 @@ class Analyst(
     cpf = cpf,
     salary = salary
 ) {
-    override val bonus: Double get() = salary * 0.1
+    override val bonus: Double get() = salary * 0.05
 }
