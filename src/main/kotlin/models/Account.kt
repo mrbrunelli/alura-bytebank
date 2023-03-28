@@ -3,19 +3,15 @@ package models
 import java.text.NumberFormat
 import java.util.*
 
-open class Account(private val owner: String, private val number: Int) {
+abstract class Account(private val owner: String, private val number: Int) {
     var balance = 0.0
-        private set
+        protected set
 
     fun deposit(value: Double) {
         if (value > 0) this.balance += value
     }
 
-    open fun withdraw(value: Double) {
-        if (canExecuteOperation(value)) {
-            balance -= value
-        }
-    }
+    abstract fun withdraw(value: Double)
 
     fun transfer(value: Double, target: Account): Boolean {
         if (canExecuteOperation(value)) {
@@ -26,7 +22,7 @@ open class Account(private val owner: String, private val number: Int) {
         return false
     }
 
-    private fun canExecuteOperation(value: Double): Boolean {
+    protected fun canExecuteOperation(value: Double): Boolean {
         return balance >= value
     }
 

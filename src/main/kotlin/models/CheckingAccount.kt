@@ -8,7 +8,9 @@ class CheckingAccount(
     number = number
 ) {
     override fun withdraw(value: Double) {
-        val priceIncludingTax = value + 0.1
-        super.withdraw(priceIncludingTax)
+        val priceIncludingTax = value * 0.01
+        if (canExecuteOperation(priceIncludingTax)) {
+            balance -= priceIncludingTax
+        }
     }
 }
