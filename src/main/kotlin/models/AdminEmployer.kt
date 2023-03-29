@@ -10,7 +10,5 @@ abstract class AdminEmployer(
     cpf = cpf,
     salary = salary
 ), Authenticable {
-    override fun auth(password: String): Boolean {
-        return this.password == password
-    }
+    override fun auth(password: String): Boolean = password == this.password
 }
