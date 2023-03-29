@@ -5,16 +5,12 @@ class Director(
     cpf: String,
     salary: Double,
     private val plr: Double,
-    private val password: String
-) : Employer(
+    password: String
+) : AdminEmployer(
     name = name,
     cpf = cpf,
-    salary = salary
+    salary = salary,
+    password = password
 ) {
-    fun auth(password: String): Boolean {
-        return this.password == password
-    }
-
     override val bonus: Double get() = salary + plr
-        
 }
